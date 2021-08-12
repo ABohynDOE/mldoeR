@@ -30,23 +30,30 @@ The `searchTable()` function makes this possible for two-level designs.
 The search-table for $2^{6-2}$ designs of resolution $III$ looks like this.
 
 ```{r}
-st <- searchtable(n = 6, p = 2, r = 3)
+st <- searchtable(k = 4, p = 2, R = 3)
 print(st)
 ```
 If you want to generate search-table for mixed-level designs, the `mSearchtable()` function is there.
 For example, you can generate the search-table for $4^{1}2^{5}$ designs of resolution $III$ in $2^5$ runs.
 
 ```{r}
-mST <- mixed_searchtable(m = 1, k = 5, p = 2, r = 3)
+mST <- mixed_searchtable(m = 1, k = 5, p = 2, R = 3)
 print(mST)
 ```
 
 # Generators
 
 In these search-table, the generators are presented as strings.
-However, you can easily obtain the string representation of a generator from its number using the `num2char()` function.
+However, you can easily get the number representation of a generator, from its string, using the `char2num()` function.
 
 ```{r}
-num2char(15)
+gen = "acd"
+char2num(gen)
+```
+
+The `num2char()` function allows you to do the invert operation.
+
+```{r}
+num2char(13)
 ```
 

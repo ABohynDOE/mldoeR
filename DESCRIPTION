@@ -1,0 +1,23 @@
+Package: mldoeR
+Type: Package
+Title: Catalog of mixed four-and-two-level regular designs
+Version: 0.1.0
+Authors@R: person("Alexandre","Bohyn",email = "alexandre.bohyn@kuleuven.be", role = c("aut","cre"), comment = c(ORCID = "0000-0001-9776-7467"))
+Description: This packages contains all the four-and-two-level regular designs cited in the catalog.
+    All designs are also characterized according to specific criteria.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Imports: 
+    binaryLogic,
+    dplyr,
+    magrittr,
+    rlang,
+    tibble
+Suggests: 
+    rmarkdown,
+    knitr,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: knitr

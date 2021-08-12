@@ -7,7 +7,7 @@ test_that("Generator num to vector works", {
   expect_equal(num2vec(13, 5), c(1, 0, 1, 1, 0))
 })
 
-test_that("Generators function do not work with x < 1", {
+test_that("Generators functions do not work with x < 1", {
   expect_error(num2char(-1), "x must be a positive integer")
   expect_error(num2vec(-1), "x must be a positive integer")
   expect_error(num2vec(-1, 4), "x must be a positive integer")

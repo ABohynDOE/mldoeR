@@ -3,5 +3,8 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   mldoeR: mldoeR.html
-last_built: 2021-08-12T15:20Z
+last_built: 2021-08-12T15:39Z
+urls:
+  reference: https://abohyndoe.github.io/mldoeR//reference
+  article: https://abohyndoe.github.io/mldoeR//articles
 

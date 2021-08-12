@@ -6,6 +6,11 @@
 #' @return A k by \eqn{2^{k}-1} binary matrix of all interactions between basic factors.
 #' @export
 bMat <- function(k) {
+  # Check the value of k
+  if (k < 2) {
+    stop("Minimum 2 basic factors (k) are needed")
+  }
+  # Build the matrix
   int_vec <- c(1:(2^k - 1))
   full_int_mat <- sapply(int_vec, function(x) {
     as.integer(intToBits(x))[1:k]

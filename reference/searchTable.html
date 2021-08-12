@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create the search-table for $2^n-p$ designs of resolution r — searchTable • mldoeR</title>
+<title>Search-table for two-level designs — searchtable • mldoeR</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Create the search-table for $2^n-p$ designs of resolution r — searchTable" />
-<meta property="og:description" content="Create the search-table for $2^n-p$ designs of resolution r" />
+<meta property="og:title" content="Search-table for two-level designs — searchtable" />
+<meta property="og:description" content="Search-table for two-level designs" />
 <meta property="og:image" content="/logo.svg" />
 
 
@@ -122,37 +122,37 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create the search-table for $2^n-p$ designs of resolution r</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ABohynDOE/mldoeR/blob/master/R/searchTable.R'><code>R/searchTable.R</code></a></small>
+    <h1>Search-table for two-level designs</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ABohynDOE/mldoeR/blob/master/R/searchtable.R'><code>R/searchtable.R</code></a></small>
     <div class="hidden name"><code>searchTable.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create the search-table for $2^n-p$ designs of resolution r</p>
+    <p>Search-table for two-level designs</p>
     </div>
 
-    <pre class="usage"><span class='fu'>searchTable</span><span class='op'>(</span><span class='va'>n</span>, <span class='va'>p</span>, <span class='va'>r</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>searchtable</span><span class='op'>(</span><span class='va'>k</span>, <span class='va'>p</span>, <span class='va'>R</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>n</th>
-      <td><p>number of two-level factors</p></td>
+      <th>k</th>
+      <td><p>Number of basic factors.</p></td>
     </tr>
     <tr>
       <th>p</th>
-      <td><p>number of added factors</p></td>
+      <td><p>Number of added factors</p></td>
     </tr>
     <tr>
-      <th>r</th>
-      <td><p>minimal resolution of the designs</p></td>
+      <th>R</th>
+      <td><p>Resolution</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A 2^k-k-1 by p data.frame that contains the search-table</p>
+    <p>A tibble containing the search-table.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

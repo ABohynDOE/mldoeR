@@ -6,8 +6,18 @@
 \alias{mldoeR-package}
 \title{mldoeR: Catalog of mixed four-and-two-level regular designs}
 \description{
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
 This packages contains all the four-and-two-level regular designs cited in the catalog.
     All designs are also characterized according to specific criteria.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/ABohynDOE/mldoeR}
+  \item Report bugs at \url{https://github.com/ABohynDOE/mldoeR/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Alexandre Bohyn \email{alexandre.bohyn@kuleuven.be} (\href{https://orcid.org/0000-0001-9776-7467}{ORCID})

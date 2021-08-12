@@ -2,10 +2,9 @@
 
 export("%>%")
 export(bMat)
-export(mSearchTable)
+export(char2num)
+export(mixed_searchtable)
 export(num2char)
 export(num2vec)
-export(searchTable)
-importFrom(dplyr,"%>%")
+export(searchtable)
 importFrom(magrittr,"%>%")
-importFrom(rlang,.data)

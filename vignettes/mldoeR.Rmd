@@ -30,14 +30,14 @@ The `searchTable()` function makes this possible for two-level designs.
 The search-table for $2^{6-2}$ designs of resolution $III$ looks like this.
 
 ```{r}
-st <- searchTable(n = 6, p = 2, r = 3)
+st <- searchtable(n = 6, p = 2, r = 3)
 print(st)
 ```
 If you want to generate search-table for mixed-level designs, the `mSearchtable()` function is there.
 For example, you can generate the search-table for $4^{1}2^{5}$ designs of resolution $III$ in $2^5$ runs.
 
 ```{r}
-mST <- mSearchTable(m = 1, k = 5, p = 2, r = 3)
+mST <- mixed_searchtable(m = 1, k = 5, p = 2, r = 3)
 print(mST)
 ```
 

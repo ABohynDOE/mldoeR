@@ -3,8 +3,8 @@ test_that("Generator char to num works", {
 })
 
 test_that("Generator num to vector works", {
-  expect_equal(num2vec(7), c(1,1,1))
-  expect_equal(num2vec(13,5), c(1,0,1,1,0))
+  expect_equal(num2vec(7), c(1, 1, 1))
+  expect_equal(num2vec(13, 5), c(1, 0, 1, 1, 0))
 })
 
 test_that("Generators function do not work with x < 1", {

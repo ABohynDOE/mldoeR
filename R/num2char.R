@@ -19,12 +19,12 @@
 #' num2char(4)
 #' num2char(13)
 #' @export
-num2char <- function(x){
+num2char <- function(x) {
   # Checking value of x
-  if (x < 1){
+  if (x < 1) {
     stop("x must be a positive integer")
   }
   b <- binaryLogic::as.binary(x, n = 0, littleEndian = TRUE)
   l <- letters[1:length(b)]
-  return(paste(l[b], collapse = ''))
+  return(paste(l[b], collapse = ""))
 }

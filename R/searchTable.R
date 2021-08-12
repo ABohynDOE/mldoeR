@@ -1,8 +1,65 @@
-#' Creates interaction data about all possible interactions between k factors
+#' Search-table for mixed-level designs
 #'
-#' @param k number of basic factors
-#' @description Interaction data includes: Number, Character equivalent, Length
-interaction.data <- function(k) {
+#' Create a search-table for regular four-and-two-level designs.
+#'
+#' @details
+#' Pseudo-factors are always composed of a pair of basic factors and their interaction.
+#'
+#' @param m Number of four-level factors
+#' @param k Number of basic factors
+#' @param p Number of added factors
+#' @param R Resolution
+#'
+#' @return A tibble containing the search-table.
+#' @export
+#'
+#' @examples
+#' # Search-table for 4^1 2^6 designs in 32 runs
+#' mixed_searchtable(1, 5, 3, 3)
+mixed_searchtable <- function(m, k, p, R) {
+  # Compute all generators
+  gen <- c(1:(2^k - 1))
+  # Compute char equivalent
+  generators <- sapply(gen, num2char)
+  # Compute their matrix form
+  gen_mat <- matrix(nrow = 2^k - 1, ncol = k)
+  for (i in gen) {
+    gen_mat[i, ] <- binaryLogic::as.binary(i, littleEndian = TRUE, n = k)
+  }
+  # Original order
+  order <- rowSums(gen_mat)
+  # Modify according to four-level factors
+  mod_order <- rowSums(gen_mat)
+  type <- rep(0, (2^k - 1))
+  for (i in 1:m) {
+    pf_order <- rowSums(gen_mat[, (2 * i - 1):(2 * i)])
+    mod_order <- mod_order - pf_order + as.logical(pf_order)
+    type <- type + as.logical(pf_order)
+  }
+  # Sort by order and type
+  int_df <- tibble::tibble(gen, generators, mod_order, type)
+  st <- int_df[order(int_df$mod_order, int_df$type), ]
+  st <- dplyr::filter(st, mod_order > R - 2)
+  # Create the added factors
+  for (i in 1:(p + 1)) {
+    st <- dplyr::mutate(st, paste0(generators, intToUtf8(96 + k + i)))
+    colnames(st)[ncol(st)] <- intToUtf8(96 + k + i)
+  }
+  # Return simply the ST
+  return(dplyr::select(st, -mod_order, -type, -gen))
+}
+
+#' Search-table for two-level designs
+#'
+#' @param k Number of basic factors.
+#' @param p Number of added factors
+#' @param R Resolution
+#'
+#' @return A tibble containing the search-table.
+#' @export
+searchtable <- function(k, p, R) {
+  # Total number of factors
+  n <- k + p
   # Full interaction matrix
   full_int_mat <- bMat(k)
   # Letters of the basic factors
@@ -17,31 +74,14 @@ interaction.data <- function(k) {
   # Length vector
   int_len <- as.vector(colSums(full_int_mat))
   # Join into a tibble
-  int_tibble <- tibble::tibble(
+  int.data <- tibble::tibble(
     num = int_num,
     gen = int_chr,
     len = int_len
   )
-  return(int_tibble)
-}
-
-#' Create the search-table for $2^{n-p}$ designs of resolution r
-#'
-#' @param n number of two-level factors
-#' @param p number of added factors
-#' @param r minimal resolution of the designs
-#' @return A 2^k-k-1 by p data.frame that contains the search-table
-#' @importFrom dplyr %>%
-#' @importFrom rlang .data
-#' @export
-searchTable <- function(n, p, r) {
-  # Basic factors
-  k <- n - p
-  # Interactions
-  int.data <- interaction.data(k)
   # Generators
   gen.table <- int.data %>%
-    dplyr::filter(.data$len >= (r - 1)) %>%
+    dplyr::filter(.data$len >= (R - 1)) %>%
     dplyr::select(.data$gen)
   # Create the added factors
   for (i in 1:p + 1) {

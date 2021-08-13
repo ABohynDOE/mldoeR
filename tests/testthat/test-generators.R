@@ -19,6 +19,6 @@ test_that("Generators functions only take x > 1", {
   expect_error(num2char(-1), "x must be a positive integer")
   expect_error(num2vec(-1), "x must be a positive integer")
   # No empty string or non-string
-  expect_error(char2num(''), "s must be a non-empty string")
+  expect_error(char2num(""), "s must be a non-empty string")
   expect_error(char2num(15), "s must be a string")
 })

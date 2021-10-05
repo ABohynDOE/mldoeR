@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • mldoeR</title>
+<title>Distance distribution of a matrix — distanceDist • mldoeR</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,9 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Distance distribution of a matrix — distanceDist" />
+<meta property="og:description" content="distanceDist(x) computes the distribution of the hamming distances between
+all pairs of rows (even identical) in matrix x." />
 <meta property="og:image" content="https://abohyndoe.github.io/mldoeR/logo.svg" />
 
 
@@ -66,7 +68,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -119,84 +121,40 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Distance distribution of a matrix</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ABohynDOE/mldoeR/blob/master/R/RcppExports.R'><code>R/RcppExports.R</code></a></small>
+    <div class="hidden name"><code>distanceDist.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p><code>distanceDist(x)</code> computes the distribution of the hamming distances between
+all pairs of rows (even identical) in matrix <code>x</code>.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>distanceDist</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="bMat.html">bMat()</a></code> </p>
-        </td>
-        <td><p>Full interaction matrix</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="char2num.html">char2num()</a></code> </p>
-        </td>
-        <td><p>Number representation of a generator, written as a string</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="distanceDist.html">distanceDist()</a></code> </p>
-        </td>
-        <td><p>Distance distribution of a matrix</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="hammingDist.html">hammingDist()</a></code> </p>
-        </td>
-        <td><p>Hamming distance between two vectors</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mixed_searchtable.html">mixed_searchtable()</a></code> </p>
-        </td>
-        <td><p>Search-table for mixed-level designs</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="num2char.html">num2char()</a></code> </p>
-        </td>
-        <td><p>Convert a column number to a word representation</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="num2vec.html">num2vec()</a></code> </p>
-        </td>
-        <td><p>Vector representation of a column number</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="searchTable.html">searchtable()</a></code> </p>
-        </td>
-        <td><p>Search-table for two-level designs</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>input matrix</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>a vector of the distance distribution</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>For a matrix \(\mathbf{X}\) of size \((n \times m)\), the distance distribution is
+a row-vector \(B\) of length \(n\), where \(B_i\) is the number of pairs of rows
+with hamming distance \(i\).
+Since pairs of identical rows are considered, \(B_0\) will always be \(n\).</p>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>

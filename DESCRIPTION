@@ -13,6 +13,7 @@ Imports:
     binaryLogic,
     dplyr,
     magrittr,
+    Rcpp,
     rlang,
     tibble
 Suggests: 
@@ -23,3 +24,5 @@ Config/testthat/edition: 3
 VignetteBuilder: knitr
 URL: https://github.com/ABohynDOE/mldoeR
 BugReports: https://github.com/ABohynDOE/mldoeR/issues
+LinkingTo: 
+    Rcpp
